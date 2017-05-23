@@ -32,13 +32,22 @@ public class PostDAO {
     public void modificar(Post p, int id) {
         String sql = "update Post SET "
                    + "nombres = '" + p.getTitulo() + "',"
+<<<<<<< HEAD
                    + "apellidos ='" + p.getCuerpo()+ "' "
                    + "where id='" + id + "'" ;
+=======
+                   + "apellidos ='" + p.getCuerpo()+ "'"
+                   + " where id='" + id + "'" ;
+>>>>>>> master
         con.update(sql);
     }
 
     public ArrayList<Post> listar() {
+<<<<<<< HEAD
         ArrayList<Post> post = new ArrayList<Post>();
+=======
+        ArrayList<Post> profesores = new ArrayList<Post>();
+>>>>>>> master
         ResultSet datos = null;
         try {
             String sql = "SELECT * FROM post";
@@ -54,14 +63,22 @@ public class PostDAO {
                 p.setPostestado_id(datos.getInt("postestado_id"));
 
                 //agregar profesor a arraylist de profesores
+<<<<<<< HEAD
                 post.add(p);
+=======
+                profesores.add(p);
+>>>>>>> master
 
             }
         } catch (SQLException ex) {
             Logger.getLogger(PostDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
 
+<<<<<<< HEAD
         return post;
+=======
+        return profesores;
+>>>>>>> master
 
     }
 
