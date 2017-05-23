@@ -4,6 +4,10 @@
         <servlet-name>ProfesorController</servlet-name>
         <servlet-class>controller.ProfesorController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ComentariosController</servlet-name>
+        <servlet-class>controller.ComentariosController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ProfesorController</servlet-name>
         <url-pattern>/Profesor/ingresar</url-pattern>
@@ -16,9 +20,13 @@
         <servlet-name>ProfesorController</servlet-name>
         <url-pattern>/Profesor/buscar</url-pattern>
     </servlet-mapping>
-     <servlet-mapping>
+    <servlet-mapping>
         <servlet-name>ProfesorController</servlet-name>
         <url-pattern>/Profesor/modificar</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ComentariosController</servlet-name>
+        <url-pattern>/ComentariosController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
