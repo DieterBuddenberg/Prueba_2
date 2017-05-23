@@ -13,7 +13,27 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <form action="Profesor/ingresar" method="POST">
+            <table border="0">
+                <tr>
+                    <td>Nombres</td>
+                    <td><input type="text" name="txtNombres" value="" /></td>
+                </tr>
+                <tr>
+                    <td>Apellidos</td>
+                    <td><input type="text" name="txtApellidos" value="" /></td>
+                </tr>
+                <tr>
+                    <td>Correo</td>
+                    <td><input type="text" name="txtCorreo" value="" /></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input type="submit" value="Agregar" /></td>
+                </tr>
+
+            </table>
+            <a href="index.html">Volver</a>
+        </form>
     </body>
     
 </html>
