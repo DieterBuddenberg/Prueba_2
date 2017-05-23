@@ -11,80 +11,81 @@ package model.dto;
  */
 public class Usuario {
     
-    private int idUsuario;
-    private int idPerfil;
-    private String Nombre;
-    private String Apellido;
-    private String Email;
+    private int id;
+    private int perfil_id;
+    private String nombre;
+    private String apellido;
+    private String email;
 
     /**
-     * @return the idUsuario
+     * @return the id
      */
-    public int getIdUsuario() {
-        return idUsuario;
+    public int getId() {
+        return id;
     }
 
     /**
-     * @param idUsuario the idUsuario to set
+     * @param id the id to set
      */
-    public void setIdUsuario(int idUsuario) {
-        this.idUsuario = idUsuario;
+    public void setId(int id) {
+        this.id = id;
     }
 
     /**
-     * @return the idPerfil
+     * @return the perfil_id
      */
-    public int getIdPerfil() {
-        return idPerfil;
+    public int getPerfil_id() {
+        return perfil_id;
     }
 
     /**
-     * @param idPerfil the idPerfil to set
+     * @param perfil_id the perfil_id to set
      */
-    public void setIdPerfil(int idPerfil) {
-        this.idPerfil = idPerfil;
+    public void setPerfil_id(int perfil_id) {
+        this.perfil_id = perfil_id;
     }
 
     /**
-     * @return the Nombre
+     * @return the nombre
      */
     public String getNombre() {
-        return Nombre;
+        return nombre;
     }
 
     /**
-     * @param Nombre the Nombre to set
+     * @param nombre the nombre to set
      */
-    public void setNombre(String Nombre) {
-        this.Nombre = Nombre;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     /**
-     * @return the Apellido
+     * @return the apellido
      */
     public String getApellido() {
-        return Apellido;
+        return apellido;
     }
 
     /**
-     * @param Apellido the Apellido to set
+     * @param apellido the apellido to set
      */
-    public void setApellido(String Apellido) {
-        this.Apellido = Apellido;
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
     }
 
     /**
-     * @return the Email
+     * @return the email
      */
     public String getEmail() {
-        return Email;
+        return email;
     }
 
     /**
-     * @param Email the Email to set
+     * @param email the email to set
      */
-    public void setEmail(String Email) {
-        this.Email = Email;
+    public void setEmail(String email) {
+        this.email = email;
     }
-   
+
+     
 }

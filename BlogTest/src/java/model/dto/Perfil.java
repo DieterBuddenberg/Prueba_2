@@ -10,35 +10,51 @@ package model.dto;
  * @author admin
  */
 public class Perfil {
-    private int idPerfil;
-    private String Detalle;
+    private int id;
+    private String tipo;
+    private String detalle;
 
     /**
-     * @return the idPerfil
+     * @return the id
      */
-    public int getIdPerfil() {
-        return idPerfil;
+    public int getId() {
+        return id;
     }
 
     /**
-     * @param idPerfil the idPerfil to set
+     * @param id the id to set
      */
-    public void setIdPerfil(int idPerfil) {
-        this.idPerfil = idPerfil;
+    public void setId(int id) {
+        this.id = id;
     }
 
     /**
-     * @return the Detalle
+     * @return the tipo
+     */
+    public String getTipo() {
+        return tipo;
+    }
+
+    /**
+     * @param tipo the tipo to set
+     */
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    /**
+     * @return the detalle
      */
     public String getDetalle() {
-        return Detalle;
+        return detalle;
     }
 
     /**
-     * @param Detalle the Detalle to set
+     * @param detalle the detalle to set
      */
-    public void setDetalle(String Detalle) {
-        this.Detalle = Detalle;
+    public void setDetalle(String detalle) {
+        this.detalle = detalle;
     }
+
     
 }
