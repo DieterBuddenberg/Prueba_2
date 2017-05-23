@@ -7,6 +7,8 @@
 -- Versión del servidor: 10.1.19-MariaDB
 -- Versión de PHP: 5.6.24
 
+
+
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
@@ -26,7 +28,7 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `comentarioestado`
 --
 
-CREATE TABLE `comentarioestado` (
+CREATE TABLE `mydb`.`comentarioestado` (
   `id` int(11) NOT NULL,
   `detalle` varchar(45) DEFAULT NULL,
   `estado` enum('activo','inactivo','pendiente') NOT NULL DEFAULT 'pendiente'
@@ -38,7 +40,7 @@ CREATE TABLE `comentarioestado` (
 -- Estructura de tabla para la tabla `comentarios`
 --
 
-CREATE TABLE `comentarios` (
+CREATE TABLE `mydb`.`comentarios` (
   `id` int(11) NOT NULL,
   `usuario_id` int(11) NOT NULL,
   `comentario` text NOT NULL,
@@ -53,17 +55,17 @@ CREATE TABLE `comentarios` (
 -- Estructura de tabla para la tabla `perfil`
 --
 
-CREATE TABLE `perfil` (
+CREATE TABLE `mydb`.`perfil` (
   `id` int(11) NOT NULL,
   `tipo` enum('admin','user','guest') DEFAULT NULL,
-  `detalle` varchar(60) DEFAULT NULL
+  `detallePerfil` varchar(60) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `perfil`
 --
 
-INSERT INTO `perfil` (`id`, `tipo`, `detalle`) VALUES
+INSERT INTO `mydb`.`perfil` (`id`, `tipo`, `detalle`) VALUES
 (1, '', ''),
 (2, '', '');
 
@@ -73,7 +75,7 @@ INSERT INTO `perfil` (`id`, `tipo`, `detalle`) VALUES
 -- Estructura de tabla para la tabla `post`
 --
 
-CREATE TABLE `post` (
+CREATE TABLE `mydb`.`post` (
   `id` int(11) NOT NULL,
   `usuario_id` int(11) DEFAULT NULL,
   `titulo` varchar(200) DEFAULT NULL,
@@ -88,7 +90,7 @@ CREATE TABLE `post` (
 -- Estructura de tabla para la tabla `postestado`
 --
 
-CREATE TABLE `postestado` (
+CREATE TABLE `mydb`.`postestado` (
   `id` int(11) NOT NULL,
   `detalle` varchar(45) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -99,7 +101,7 @@ CREATE TABLE `postestado` (
 -- Estructura de tabla para la tabla `usuario`
 --
 
-CREATE TABLE `usuario` (
+CREATE TABLE `mydb`.`usuario` (
   `id` int(11) NOT NULL,
   `perfil_id` int(11) DEFAULT NULL,
   `nombre` varchar(45) DEFAULT NULL,
@@ -115,19 +117,19 @@ CREATE TABLE `usuario` (
 --
 -- Indices de la tabla `comentarioestado`
 --
-ALTER TABLE `comentarioestado`
+ALTER TABLE `mydb`.`comentarioestado`
   ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `perfil`
 --
-ALTER TABLE `perfil`
+ALTER TABLE `mydb`.`perfil`
   ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `post`
 --
-ALTER TABLE `post`
+ALTER TABLE `mydb`.`post`
   ADD PRIMARY KEY (`id`),
   ADD KEY `Usuario_idx` (`usuario_id`),
   ADD KEY `PostEstado_idx` (`post_estado_id`);
@@ -135,13 +137,13 @@ ALTER TABLE `post`
 --
 -- Indices de la tabla `postestado`
 --
-ALTER TABLE `postestado`
+ALTER TABLE `mydb`.`postestado`
   ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `usuario`
 --
-ALTER TABLE `usuario`
+ALTER TABLE `mydb`.`usuario`
   ADD PRIMARY KEY (`id`),
   ADD KEY `Perfil_idx` (`perfil_id`);
 
@@ -152,15 +154,15 @@ ALTER TABLE `usuario`
 --
 -- Filtros para la tabla `post`
 --
-ALTER TABLE `post`
+ALTER TABLE `mydb`.`post`
   ADD CONSTRAINT `PostEstado` FOREIGN KEY (`post_estado_id`) REFERENCES `postestado` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `Usuario` FOREIGN KEY (`usuario_id`) REFERENCES `usuario` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `usuario`
 --
-ALTER TABLE `usuario`
-  ADD CONSTRAINT `Perfil` FOREIGN KEY (`perfil_id`) REFERENCES `perfil` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE `mydb`.`usuario`
+  ADD CONSTRAINT `Perfil` FOREIGN KEY (`perfil_id`) REFERENCES `mydb`.`perfil` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
