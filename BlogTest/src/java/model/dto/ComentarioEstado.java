@@ -9,10 +9,10 @@ package model.dto;
  *
  * @author admin
  */
-public class Perfil {
+public class ComentarioEstado {
     private int id;
-    private String tipo;
     private String detalle;
+    private String estado;
 
     /**
      * @return the id
@@ -29,20 +29,6 @@ public class Perfil {
     }
 
     /**
-     * @return the tipo
-     */
-    public String getTipo() {
-        return tipo;
-    }
-
-    /**
-     * @param tipo the tipo to set
-     */
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
-
-    /**
      * @return the detalle
      */
     public String getDetalle() {
@@ -56,5 +42,19 @@ public class Perfil {
         this.detalle = detalle;
     }
 
-    
+    /**
+     * @return the estado
+     */
+    public String getEstado() {
+        return estado;
+    }
+
+    /**
+     * @param estado the estado to set
+     */
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+
 }
