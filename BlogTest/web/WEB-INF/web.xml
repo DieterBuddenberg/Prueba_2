@@ -37,6 +37,18 @@
         <servlet-name>PostController</servlet-name>
         <url-pattern>/Post/ingresar</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PostController</servlet-name>
+        <url-pattern>/Post/buscar</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PostController</servlet-name>
+        <url-pattern>/Post/modificar</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PostController</servlet-name>
+        <url-pattern>/Post/eliminar</url-pattern>
+    </servlet-mapping>
 
     
     

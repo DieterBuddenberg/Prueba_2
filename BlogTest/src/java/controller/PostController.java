@@ -65,11 +65,11 @@ public class PostController extends HttpServlet {
         }*/
         
         
-        //int usuario_id = request.getParameter("usuario_id");
+        String id = request.getParameter("id");
         String titulo = request.getParameter("titulo");
         String cuerpo = request.getParameter("cuerpo");
         
-        System.out.print(titulo);
+        //System.out.print(titulo);
         PostDAO psDAO = new PostDAO();
         
 
@@ -78,14 +78,13 @@ public class PostController extends HttpServlet {
                 Post p = new Post();
                 p.setTitulo(titulo);
                 p.setCuerpo(cuerpo);
-               // p.setCorreo(correo);
                 psDAO.ingresar(p);
                 break;
             case "modificar":
-                PostDAO pstDAO = new PostDAO();
-                //pstDAO.ingresar(usuario_id);
-                //pstDAO.setApellidos(titulo);
-                //pstDAO.modificar(cuerpo);
+                Post pro = new Post();
+                pro.setTitulo(titulo);
+                pro.setCuerpo(cuerpo);
+                psDAO.modificar(pro, Integer.parseInt(id));
                 break;
             default:
                 throw new AssertionError();
