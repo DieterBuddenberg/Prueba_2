@@ -1,0 +1,10 @@
+SMAP
+create_005fpost_jsp.java
+JSP
+*S JSP
+*F
++ 0 create_post.jsp
+create_post.jsp
+*L
+5,41:44
+*E

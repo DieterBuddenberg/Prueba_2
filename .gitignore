@@ -1,1 +1,15 @@
 /BlogTest/dist/
+*.class
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+/BlogTest/build/web/WEB-INF/lib/
+/BlogTest/nbproject/ant-deploy.xml
+/BlogTest/nbproject/build-impl.xml
+/BlogTest/nbproject/build-impl.xml~
