@@ -55,7 +55,7 @@ public final class create_005fpost_jsp extends org.apache.jasper.runtime.HttpJsp
       out.write("        <div class=\"container\">\n");
       out.write("\t\t<h1>Creación de Post</h1><br>\n");
       out.write("\n");
-      out.write("                <form action=\"controller.ComentariosController\" method=\"POST\">\n");
+      out.write("                <form action=\"Post/ingresar\" method=\"POST\">\n");
       out.write("\n");
       out.write("\t\t\t<div class=\"form-group row\">\n");
       out.write("\t\t      <label for=\"inputPassword3\" class=\"col-sm-2 col-form-label\">Título</label>\n");

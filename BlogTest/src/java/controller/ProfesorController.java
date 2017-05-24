@@ -11,29 +11,47 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.dao.PostDAO;
-import model.dto.Post;
+import model.dao.ProfesorDAO;
+import model.dto.Profesor;
 import util.Ayudante;
 
-public class PostController extends HttpServlet {
+public class ProfesorController extends HttpServlet {
 
+    /**
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    /**
+     * Handles the HTTP <code>GET</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        PostDAO psDAO = new PostDAO();
+        ProfesorDAO profeDAO = new ProfesorDAO();
         String ruta = request.getRequestURI();
         String accion = Ayudante.getAccion(ruta);
         int id = Integer.parseInt(request.getParameter("id"));
 
         switch (accion) {
             case "eliminar":
-                psDAO.eliminar(id);
-                response.sendRedirect("../listarPost.jsp");
+                profeDAO.eliminar(id);
+                response.sendRedirect("../listarProfesores.jsp");
                 break;
             case "buscar":
-                Post p = psDAO.buscar(id);
-                request.setAttribute("post", p);
-                request.getRequestDispatcher("../modificarPost.jsp").forward(request, response);
+                Profesor p = profeDAO.buscar(id);
+                request.setAttribute("profesor", p);
+                request.getRequestDispatcher("../modificarProfesor.jsp").forward(request, response);
 
         }
 
@@ -50,42 +68,31 @@ public class PostController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         System.out.println("File opened...");
+
+        String nombres = request.getParameter("txtNombres");
+        String apellidos = request.getParameter("txtApellidos");
+        String correo = request.getParameter("txtCorreo");
+        String idUpdate = request.getParameter("txtId");
         
+        System.out.print(idUpdate);
+        ProfesorDAO profeDAO = new ProfesorDAO();
         String ruta = request.getRequestURI();
         String accion = Ayudante.getAccion(ruta);
-        
-        System.out.print(accion);
-        
-        /*switch (accion) {
-            case "ingresar":
-            PostDAO psDAO = new PostDAO();
-        //Profesor p = new Profesor();
-            //PostDAO.ingresar();
-        }*/
-        
-        
-        //int usuario_id = request.getParameter("usuario_id");
-        String titulo = request.getParameter("titulo");
-        String cuerpo = request.getParameter("cuerpo");
-        
-        System.out.print(titulo);
-        PostDAO psDAO = new PostDAO();
         
 
         switch (accion) {
             case "ingresar":
-                Post p = new Post();
-                p.setTitulo(titulo);
-                p.setCuerpo(cuerpo);
-               // p.setCorreo(correo);
-                psDAO.ingresar(p);
+                Profesor p = new Profesor();
+                p.setNombres(nombres);
+                p.setApellidos(apellidos);
+                p.setCorreo(correo);
+                //profeDAO.ingresar(p);
                 break;
             case "modificar":
-                PostDAO pstDAO = new PostDAO();
-                //pstDAO.ingresar(usuario_id);
-                //pstDAO.setApellidos(titulo);
-                //pstDAO.modificar(cuerpo);
+                Profesor pro = new Profesor();
+                pro.setNombres(nombres);
+                pro.setApellidos(apellidos);
+                profeDAO.modificar(pro, Integer.parseInt(idUpdate));
                 break;
             default:
                 throw new AssertionError();

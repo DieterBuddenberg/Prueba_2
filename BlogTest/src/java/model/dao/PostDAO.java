@@ -29,8 +29,8 @@ public class PostDAO {
         //             "VALUES (" + p.getUsuario_id() + ",'"+ p.getTitulo() + "','"+ p.getCuerpo() + "',"+ p.getPostestado_id() + ")";
         //System.out.print(p.getTitulo());
         String sql = "INSERT INTO post" +
-                     "(`usuario_id`,`titulo`,`cuerpo`,`postestado_id`) " +
-                     "VALUES (" + 1 + ",'"+ p.getTitulo() + "','"+ p.getCuerpo() + "',"+ 1 + ")";
+                     "(`usuario_id`,`titulo`,`cuerpo`,`post_estado_id`) " +
+                     "VALUES (" + 2 + ",'"+ p.getTitulo() + "','"+ p.getCuerpo() + "',"+ 2 + ")";
         
         con.update(sql);
     }
