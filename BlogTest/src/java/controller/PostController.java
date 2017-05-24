@@ -6,7 +6,7 @@
 package controller;
 
 import java.io.IOException;
-//import java.io.PrintWriter;
+import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -55,6 +55,8 @@ public class PostController extends HttpServlet {
         String ruta = request.getRequestURI();
         String accion = Ayudante.getAccion(ruta);
         
+        System.out.print(accion);
+        
         switch (accion) {
             case "ingresar":
             PostDAO psDAO = new PostDAO();
@@ -73,9 +75,9 @@ public class PostController extends HttpServlet {
 
         switch (accion) {
             case "ingresar":
-              //  Profesor p = new Profesor();
-              //  p.setNombres(nombres);
-               // p.setApellidos(apellidos);
+                Post p = new Post();
+                p.setTitulo(titulo);
+                p.setCuerpo(cuerpo);
                // p.setCorreo(correo);
                // profeDAO.ingresar(p);
                 break;

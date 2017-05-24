@@ -28,11 +28,18 @@
         <servlet-name>ProfesorController</servlet-name>
         <url-pattern>/Profesor/modificar</url-pattern>
     </servlet-mapping>
-
+    <servlet-mapping>
+        <servlet-name>ComentariosController</servlet-name>
+        <url-pattern>/ComentariosController</url-pattern>
+    </servlet-mapping>
+    
     <servlet-mapping>
         <servlet-name>PostController</servlet-name>
-        <url-pattern>/PostController</url-pattern>
+        <url-pattern>/Post/ingresar</url-pattern>
     </servlet-mapping>
+
+    
+    
     <session-config>
         <session-timeout>
             30

@@ -16,7 +16,7 @@
         <div class="container">
 		<h1>Creación de Post</h1><br>
 
-                <form action="controller.ComentariosController" method="POST">
+                <form action="Post/ingresar" method="POST">
 
 			<div class="form-group row">
 		      <label for="inputPassword3" class="col-sm-2 col-form-label">Título</label>

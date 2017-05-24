@@ -5,6 +5,7 @@
  */
 package model.dao;
 
+import java.io.PrintWriter;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -23,19 +24,22 @@ public class PostDAO {
    
     //  public void ingresar(Post p) {
     public void ingresar(Post p) {
-        String sql = "INSERT INTO `mydb`.`Post`" +
-                     "(`id`,`usuario_id`,`titulo`,`cuerpo`,`postestado_id`) " +
-                     "VALUES ('" + p.getId() + "','" + p.getUsuario_id() + "','"+ p.getTitulo() + "','"+ p.getCuerpo() + "','"+ p.getPostestado_id() + "');";
+        //String sql = "INSERT INTO post" +
+        //             "(`usuario_id`,`titulo`,`cuerpo`,`postestado_id`) " +
+        //             "VALUES (" + p.getUsuario_id() + ",'"+ p.getTitulo() + "','"+ p.getCuerpo() + "',"+ p.getPostestado_id() + ")";
+        //System.out.print(p.getTitulo());
+        String sql = "INSERT INTO post" +
+                     "(`usuario_id`,`titulo`,`cuerpo`,`postestado_id`) " +
+                     "VALUES (" + 1 + ",'"+ p.getTitulo() + "','"+ p.getCuerpo() + "',"+ 1 + ")";
+        
         con.update(sql);
     }
           
     public void modificar(Post p, int id) {
-        String sql = "update Post SET "
+        String sql = "update post SET "
                    + "nombres = '" + p.getTitulo() + "',"
                    + "apellidos ='" + p.getCuerpo()+ "' "
-                   + "where id='" + id + "'" 
-                   + "apellidos ='" + p.getCuerpo() + "' "
-                   + "where id='" + id + "'" ;
+                   + "where id=" + id;
         con.update(sql);
     }
 
