@@ -13,7 +13,11 @@ public class Perfil {
     private int id;
     private String tipo;
     private String detalle;
+    
+    public Perfil() {
+    }
 
+    
     /**
      * @return the id
      */

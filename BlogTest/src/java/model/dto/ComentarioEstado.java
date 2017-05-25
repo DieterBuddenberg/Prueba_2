@@ -14,6 +14,10 @@ public class ComentarioEstado {
     private String detalle;
     private String estado;
 
+    public ComentarioEstado() {
+    }
+
+    
     /**
      * @return the id
      */

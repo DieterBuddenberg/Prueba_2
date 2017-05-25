@@ -11,17 +11,15 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.dao.PostDAO;
-import model.dto.Post;
-import model.dao.ComentariosDAO;
-import model.dto.Comentarios;
+import model.dao.UsuarioDAO;
+import model.dto.Usuario;
 import util.Ayudante;
 
 /**
  *
  * @author admin
  */
-public class ComentariosController extends HttpServlet {
+public class UsuarioController extends HttpServlet {
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -36,18 +34,18 @@ public class ComentariosController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        PostDAO psDAO = new PostDAO();
-        String ruta = request.getRequestURI();
-        String accion = Ayudante.getAccion(ruta);
-        int id = Integer.parseInt(request.getParameter("id"));
-
-        switch (accion) {
-            case "ingresar":
-                Post p = psDAO.buscar(id);
-                request.setAttribute("post", p);
-                System.out.println("Ingresar_Comentario");
-                request.getRequestDispatcher("../create_comentario.jsp").forward(request, response);
-        }   
+//        UsuarioDAO UserDAO = new UsuarioDAO();
+//        String ruta = request.getRequestURI();
+//        String accion = Ayudante.getAccion(ruta);
+//        int id = Integer.parseInt(request.getParameter("id"));
+//
+//        switch (accion) {
+//            case "ingresar":
+//                Usuario p = UserDAO.buscar(id);
+//                request.setAttribute("post", p);
+//                System.out.println("Ingresar_Comentario");
+//                request.getRequestDispatcher("../create_comentario.jsp").forward(request, response);
+//        }   
     }
 
     /**
@@ -65,25 +63,29 @@ public class ComentariosController extends HttpServlet {
         String ruta = request.getRequestURI();
         String accion = Ayudante.getAccion(ruta);
         
+        
+        System.out.print(ruta);
         System.out.print(accion);
         
-        String post_id = request.getParameter("post_id");
-        String comentario = request.getParameter("comentario");
-        String usuario_id = request.getParameter("usuario_id");
-        String comentario_estado_id = request.getParameter("comentario_estado_id");
+        String perfil_id = request.getParameter("perfil_id");
+        String usuario = request.getParameter("usuario");
+        String password = request.getParameter("password");
+        String email = request.getParameter("email");
         
         //System.out.print(titulo);
-        ComentariosDAO comDAO = new ComentariosDAO();
+        UsuarioDAO userDAO = new UsuarioDAO();
         
+        System.out.print(perfil_id + " " + usuario + " " + password + " " + email);
+
 
         switch (accion) {
             case "ingresar":
-                Comentarios c = new Comentarios();
-                c.setPost_id(Integer.parseInt(post_id));
-                c.setComentario(comentario);
-                c.setUsuario_id(Integer.parseInt(usuario_id));
-                c.setComentario_estado_id(Integer.parseInt(comentario_estado_id));
-                comDAO.ingresar(c);
+                Usuario u = new Usuario();
+                u.setPerfil_id(Integer.parseInt(perfil_id));
+                u.setUsuario(usuario);
+                u.setPassword(password);
+                u.setEmail(email);
+                userDAO.ingresar(u);
                 break;
             default:
                 throw new AssertionError();

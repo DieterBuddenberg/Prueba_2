@@ -12,6 +12,11 @@
         <servlet-name>PostController</servlet-name>
         <servlet-class>controller.PostController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UsuarioController</servlet-name>
+        <servlet-class>controller.UsuarioController</servlet-class>
+    </servlet>
+    
     <servlet-mapping>
         <servlet-name>ProfesorController</servlet-name>
         <url-pattern>/Profesor/ingresar</url-pattern>
@@ -50,7 +55,15 @@
         <servlet-name>ComentariosController</servlet-name>
         <url-pattern>/Comentarios/ingresar</url-pattern>
     </servlet-mapping>
-
+    <servlet-mapping>
+        <servlet-name>ComentariosController</servlet-name>
+        <url-pattern>/Comentarios/modificar</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>UsuarioController</servlet-name>
+        <url-pattern>/Usuario/ingresar</url-pattern>
+    </servlet-mapping>
     
     
     <session-config>

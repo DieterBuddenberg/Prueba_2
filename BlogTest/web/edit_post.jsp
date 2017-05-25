@@ -7,30 +7,36 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="../resources/css/bootstrap.min.css"/>
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Blog</h1>
-        <h3>Editar Post</h3>
+        <div class="container">
+        <h1>Editar Post</h1><br>
         
         <form action="${pageContext.request.contextPath}/Post/modificar" method="POST">
-            <table border="0">
-                <tr>
-                    <td>Titulo</td>
-                    <td><input type="text" name="titulo" value="<%=p.getTitulo() %>" /></td>
-                </tr>
-                <tr>
-                    <td>Cuerpo</td>
-                    <td><input type="text" name="cuerpo" value="<%=p.getCuerpo()%>" /></td>
-                </tr>
-                <tr>
-                
-                    <td colspan="2"><input type="submit" value="Modificar" /></td>
-                </tr>
+            <div class="form-group row">
+		      <label for="inputPassword3" class="col-sm-2 col-form-label">Título</label>
+		      <div class="col-sm-10">
+		        <input type="text" class="form-control" value="<%=p.getTitulo() %>" name="titulo" required>
+		      </div>
+		    </div>
 
-            </table>
-                <input type="hidden" name="id" value="<%=p.getId() %>" />
+			<div class="form-group row">
+		      <label for="inputPassword3" class="col-sm-2 col-form-label">Cuerpo</label>
+		      <div class="col-sm-10">
+		        <textarea class="form-control" id="TextArea" name="cuerpo" required=""><%=p.getCuerpo()%></textarea>
+		      </div>
+		    </div>
+
+		    <div class="form-group row">
+		      <div class="offset-sm-2 col-sm-10 ">
+		        <button class="btn btn-primary" style="float: right;" type="hidden" name="id" value="<%=p.getId() %>">Crear Post</button>
+		      </div>
+		    </div>
+
             <a href="list_post.jsp">Volver</a>
         </form>
+    </div>
     </body>
 </html>
