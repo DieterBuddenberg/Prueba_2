@@ -14,8 +14,8 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Universidad</h1>
-        <h3>Profesores</h3>
+        <h1>Blog</h1>
+        <h3>Listar Post</h3>
         
         <table>
             <tr>

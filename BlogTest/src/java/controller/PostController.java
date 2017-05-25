@@ -28,13 +28,13 @@ public class PostController extends HttpServlet {
         switch (accion) {
             case "eliminar":
                 psDAO.eliminar(id);
-                response.sendRedirect("../listarPost.jsp");
+                response.sendRedirect("../list_post.jsp");
                 break;
             case "buscar":
                 Post p = psDAO.buscar(id);
                 request.setAttribute("post", p);
-                request.getRequestDispatcher("../modificarPost.jsp").forward(request, response);
-
+                System.out.println("buscar");
+                request.getRequestDispatcher("../edit_post.jsp").forward(request, response);
         }
 
     }
@@ -93,7 +93,7 @@ public class PostController extends HttpServlet {
         //Crear objeto profesor y cargar datos desde formulario
 
         //Redireccionar
-        response.sendRedirect("../index.html");
+        response.sendRedirect("../index.jsp");
 
     }
 

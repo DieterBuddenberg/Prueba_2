@@ -93,7 +93,7 @@ public class PostDAO {
             p.setUsuario_id(datos.getInt("usuario_id"));
             p.setTitulo(datos.getString("titulo"));
             p.setCuerpo(datos.getString("cuerpo"));
-            p.setPostestado_id(datos.getInt("postestado_id"));
+            p.setPostestado_id(datos.getInt("post_estado_id"));
 
             return p;
         } catch (SQLException ex) {
