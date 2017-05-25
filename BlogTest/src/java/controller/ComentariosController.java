@@ -11,6 +11,10 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.dao.PostDAO;
+import model.dto.Post;
+import model.dao.ComentariosDAO;
+import model.dto.Comentarios;
 import util.Ayudante;
 
 /**
@@ -18,32 +22,6 @@ import util.Ayudante;
  * @author admin
  */
 public class ComentariosController extends HttpServlet {
-
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet ComentariosController</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet ComentariosController at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
-    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -57,7 +35,19 @@ public class ComentariosController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        
+        PostDAO psDAO = new PostDAO();
+        String ruta = request.getRequestURI();
+        String accion = Ayudante.getAccion(ruta);
+        int id = Integer.parseInt(request.getParameter("id"));
+
+        switch (accion) {
+            case "ingresar":
+                Post p = psDAO.buscar(id);
+                request.setAttribute("post", p);
+                System.out.println("Ingresar_Comentario");
+                request.getRequestDispatcher("../create_comentario.jsp").forward(request, response);
+        }   
     }
 
     /**
@@ -71,7 +61,40 @@ public class ComentariosController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        
+        
+        String ruta = request.getRequestURI();
+        String accion = Ayudante.getAccion(ruta);
+        
+        System.out.print(accion);
+        
+        String post_id = request.getParameter("post_id");
+        String comentario = request.getParameter("comentario");
+        String usuario_id = request.getParameter("usuario_id");
+        String comentario_estado_id = request.getParameter("comentario_estado_id");
+        
+        //System.out.print(titulo);
+        ComentariosDAO comDAO = new ComentariosDAO();
+        
+
+        switch (accion) {
+            case "ingresar":
+                Comentarios c = new Comentarios();
+                c.setPost_id(Integer.parseInt(post_id));
+                c.setComentario(comentario);
+                c.setUsuario_id(Integer.parseInt(usuario_id));
+                c.setComentario_estado_id(Integer.parseInt(comentario_estado_id));
+                comDAO.ingresar(c);
+                break;
+            default:
+                throw new AssertionError();
+        }
+        //Validaciones
+        //Crear objeto profesor y cargar datos desde formulario
+
+        //Redireccionar
+        response.sendRedirect("../index.jsp");
+        
     }
 
     /**

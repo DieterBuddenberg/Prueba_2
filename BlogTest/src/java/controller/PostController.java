@@ -50,7 +50,7 @@ public class PostController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         System.out.println("File opened...");
+        //System.out.println("File opened...");
         
         String ruta = request.getRequestURI();
         String accion = Ayudante.getAccion(ruta);

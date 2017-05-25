@@ -1,9 +1,13 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="model.dto.Post"%>
 <%@page import="model.dao.PostDAO"%>
+<%@page import="model.dto.Comentarios"%>
+<%@page import="model.dao.ComentariosDAO"%>
+
 <%
   PostDAO pstDao = new PostDAO();
   ArrayList<Post> posts = pstDao.listar();
+  ComentariosDAO comDao = new ComentariosDAO();
 %>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -26,8 +30,14 @@
             <tr>
                 <td><%=p.getCuerpo() %></td>
             </tr>
+            <% ArrayList<Comentarios> coms = comDao.listar(p.getId());
+               for(Comentarios c : coms){ %>
             <tr>
-                <td><a href="Comentario/ingresar?id=<%=p.getId() %>">Comentar</a></td>
+                <td><%=c.getComentario() %></td>
+            </tr>
+            <% } %>
+            <tr>
+                <td><a href="Comentarios/ingresar?id=<%=p.getId() %>">Comentar</a></td>
             </tr>
             <tr></tr>
             <% } %>

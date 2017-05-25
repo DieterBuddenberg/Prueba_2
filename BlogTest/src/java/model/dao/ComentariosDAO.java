@@ -24,8 +24,8 @@ public class ComentariosDAO {
     //  public void ingresar(Comentarios p) {
     public void ingresar(Comentarios c) {
         String sql = "INSERT INTO comentarios" +
-                     "(`usuario_id`,`comentario_estado_id`,`post_id`,`comentariosestado_id`) " +
-                     "VALUES (" + c.getUsuario_id() + ",'"+ c.getComentario_estado_id() + "','"+ c.getPost_id() + "',"+ c.getComentario() + ")";
+                     "(`usuario_id`,`comentario_estado_id`,`post_id`,`comentario`) " +
+                     "VALUES (" + c.getUsuario_id() + ","+ c.getComentario_estado_id() + ","+ c.getPost_id() + ",'"+ c.getComentario() + "')";
         con.update(sql);
     }
           
@@ -41,7 +41,7 @@ public class ComentariosDAO {
         ArrayList<Comentarios> comentarios = new ArrayList<Comentarios>();
         ResultSet datos = null;
         try {
-            String sql = "SELECT * FROM comentarios WHERE id=" + id;
+            String sql = "SELECT * FROM comentarios WHERE post_id=" + id;
 
             datos = con.query(sql);
 

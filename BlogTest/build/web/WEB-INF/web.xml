@@ -28,10 +28,6 @@
         <servlet-name>ProfesorController</servlet-name>
         <url-pattern>/Profesor/modificar</url-pattern>
     </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ComentariosController</servlet-name>
-        <url-pattern>/ComentariosController</url-pattern>
-    </servlet-mapping>
     
     <servlet-mapping>
         <servlet-name>PostController</servlet-name>
@@ -48,6 +44,11 @@
     <servlet-mapping>
         <servlet-name>PostController</servlet-name>
         <url-pattern>/Post/eliminar</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>ComentariosController</servlet-name>
+        <url-pattern>/Comentarios/ingresar</url-pattern>
     </servlet-mapping>
 
     

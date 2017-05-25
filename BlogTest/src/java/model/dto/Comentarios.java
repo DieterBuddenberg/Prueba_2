@@ -15,7 +15,10 @@ public class Comentarios {
     private int comentario_estado_id;
     private int post_id;
     private String comentario;
-
+    
+    public Comentarios() {
+    }
+    
     /**
      * @return the id
      */

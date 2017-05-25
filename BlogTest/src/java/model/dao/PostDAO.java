@@ -30,7 +30,7 @@ public class PostDAO {
         //System.out.print(p.getTitulo());
         String sql = "INSERT INTO post" +
                      "(`usuario_id`,`titulo`,`cuerpo`,`post_estado_id`) " +
-                     "VALUES (" + 2 + ",'"+ p.getTitulo() + "','"+ p.getCuerpo() + "',"+ 2 + ")";
+                     "VALUES (" + 1 + ",'"+ p.getTitulo() + "','"+ p.getCuerpo() + "',"+ 1 + ")";
         
         con.update(sql);
     }
