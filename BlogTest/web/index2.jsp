@@ -3,9 +3,11 @@
 <%@page import="model.dao.PostDAO"%>
 <%@page import="model.dto.Comentarios"%>
 <%@page import="model.dao.ComentariosDAO"%>
+<%@page import="model.dto.Usuario"%>
+
 
 <%
-  //String perfil = request.getAttribute("user");
+  Usuario user = (Usuario) request.getAttribute("perfil");
   PostDAO pstDao = new PostDAO();
   ArrayList<Post> posts = pstDao.listar();
   ComentariosDAO comDao = new ComentariosDAO();
@@ -19,8 +21,11 @@
         <title>Blog</title>
     </head>
     <body>
-        <h1>Blog <%= request.getAttribute("perfil") %></h1>
-        <h3>Noticias</h3>
+        <h1>Blog <%= user.getPerfil_id() %></h1>
+        
+        <% if(user.getPerfil_id() == 3) { 
+            response.getWriter().print("<h3>Noticias</h3>");
+        } %>
         
         <table>
             <% for(Post p : posts){ %>

@@ -83,7 +83,7 @@ public class UsuarioController extends HttpServlet {
                 u = userDAO.login(usuario, password);
                 //System.out.println("ID PERFIL: " + u.getPerfil_id());
                 //request.setAttribute("user", u.getPerfil_id());
-                request.setAttribute("perfil", u.getPerfil_id());
+                request.setAttribute("perfil", u);
                 request.getRequestDispatcher("../index2.jsp").forward(request, response);
                 //response.sendRedirect("../index2.jsp");
                 //System.out.println("Respuesta: " + response);
