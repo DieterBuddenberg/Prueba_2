@@ -32,20 +32,8 @@ public class UsuarioController extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException {  
         
-//        UsuarioDAO UserDAO = new UsuarioDAO();
-//        String ruta = request.getRequestURI();
-//        String accion = Ayudante.getAccion(ruta);
-//        int id = Integer.parseInt(request.getParameter("id"));
-//
-//        switch (accion) {
-//            case "ingresar":
-//                Usuario p = UserDAO.buscar(id);
-//                request.setAttribute("post", p);
-//                System.out.println("Ingresar_Comentario");
-//                request.getRequestDispatcher("../create_comentario.jsp").forward(request, response);
-//        }   
     }
 
     /**
@@ -63,38 +51,54 @@ public class UsuarioController extends HttpServlet {
         String ruta = request.getRequestURI();
         String accion = Ayudante.getAccion(ruta);
         
-        
-        System.out.print(ruta);
-        System.out.print(accion);
-        
         String perfil_id = request.getParameter("perfil_id");
         String usuario = request.getParameter("usuario");
         String password = request.getParameter("password");
         String email = request.getParameter("email");
         
-        //System.out.print(titulo);
         UsuarioDAO userDAO = new UsuarioDAO();
         
+        System.out.print(ruta);
+        System.out.print(accion);
         System.out.print(perfil_id + " " + usuario + " " + password + " " + email);
 
-
+        Usuario u = new Usuario();
+        
         switch (accion) {
             case "ingresar":
-                Usuario u = new Usuario();
+                //Usuario u = new Usuario();
                 u.setPerfil_id(Integer.parseInt(perfil_id));
                 u.setUsuario(usuario);
                 u.setPassword(password);
                 u.setEmail(email);
                 userDAO.ingresar(u);
                 break;
+//            case "modificar":
+//                Post pro = new Post();
+//                pro.setTitulo(titulo);
+//                pro.setCuerpo(cuerpo);
+//                psDAO.modificar(pro, Integer.parseInt(id));
+//                break;
+            case "login":
+                u = userDAO.login(usuario, password);
+                //System.out.println("ID PERFIL: " + u.getPerfil_id());
+                //request.setAttribute("user", u.getPerfil_id());
+                request.setAttribute("perfil", u.getPerfil_id());
+                request.getRequestDispatcher("../index2.jsp").forward(request, response);
+                //response.sendRedirect("../index2.jsp");
+                //System.out.println("Respuesta: " + response);
+                break;
             default:
                 throw new AssertionError();
         }
+        
         //Validaciones
         //Crear objeto profesor y cargar datos desde formulario
-
+        
+        if (accion == "login") {} else {
         //Redireccionar
-        response.sendRedirect("../index.jsp");
+        //response.sendRedirect("../index2.jsp");
+        }
         
     }
 

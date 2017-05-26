@@ -57,8 +57,8 @@ public class UsuarioDAO {
                 Usuario u = new Usuario();
                 u.setId(datos.getInt("id"));
                 u.setPerfil_id(datos.getInt("perfil_id"));
-                u.setUsuario(datos.getString("nombre"));
-                u.setPassword(datos.getString("apellido"));
+                u.setUsuario(datos.getString("usuario"));
+                u.setPassword(datos.getString("password"));
                 u.setEmail(datos.getString("email"));
 
                 //agregar profesor a arraylist de post
@@ -93,8 +93,8 @@ public class UsuarioDAO {
             Usuario u = new Usuario();
             u.setId(datos.getInt("id"));
             u.setPerfil_id(datos.getInt("perfil_id"));
-            u.setUsuario(datos.getString("nombre"));
-            u.setPassword(datos.getString("apellido"));
+            u.setUsuario(datos.getString("usuario"));
+            u.setPassword(datos.getString("password"));
             u.setEmail(datos.getString("email"));
 
             return u;
@@ -105,5 +105,32 @@ public class UsuarioDAO {
         
         return null;
     }
+
+    public Usuario login(String user, String password) {
+        try {
+            String sql = "SELECT * FROM usuario WHERE usuario = '" + user + "' and password = '" + password + "'";
+            System.out.println(sql);
+            ResultSet datos = null;
+
+            datos = con.query(sql);
+            
+            datos.next();
+
+            Usuario u = new Usuario();
+            u.setId(datos.getInt("id"));
+            u.setPerfil_id(datos.getInt("perfil_id"));
+            u.setUsuario(datos.getString("usuario"));
+            u.setPassword(datos.getString("password"));
+            u.setEmail(datos.getString("email"));
+            
+            return u;
+        } catch (SQLException ex) {
+            System.out.println("Error Usuario");
+            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return null;
+    }
+
 
 }

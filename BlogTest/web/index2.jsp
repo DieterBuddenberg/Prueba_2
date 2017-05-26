@@ -5,6 +5,7 @@
 <%@page import="model.dao.ComentariosDAO"%>
 
 <%
+  //String perfil = request.getAttribute("user");
   PostDAO pstDao = new PostDAO();
   ArrayList<Post> posts = pstDao.listar();
   ComentariosDAO comDao = new ComentariosDAO();
@@ -18,7 +19,7 @@
         <title>Blog</title>
     </head>
     <body>
-        <h1>Blog</h1>
+        <h1>Blog <%= request.getAttribute("perfil") %></h1>
         <h3>Noticias</h3>
         
         <table>

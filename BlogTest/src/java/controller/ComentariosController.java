@@ -36,18 +36,18 @@ public class ComentariosController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        PostDAO psDAO = new PostDAO();
-        String ruta = request.getRequestURI();
-        String accion = Ayudante.getAccion(ruta);
-        int id = Integer.parseInt(request.getParameter("id"));
-
-        switch (accion) {
-            case "ingresar":
-                Post p = psDAO.buscar(id);
-                request.setAttribute("post", p);
-                System.out.println("Ingresar_Comentario");
-                request.getRequestDispatcher("../create_comentario.jsp").forward(request, response);
-        }   
+//        PostDAO psDAO = new PostDAO();
+//        String ruta = request.getRequestURI();
+//        String accion = Ayudante.getAccion(ruta);
+//        int id = Integer.parseInt(request.getParameter("id"));
+//
+//        switch (accion) {
+//            case "ingresar":
+//                Post p = psDAO.buscar(id);
+//                request.setAttribute("post", p);
+//                System.out.println("Ingresar_Comentario");
+//                request.getRequestDispatcher("../create_comentario.jsp").forward(request, response);
+//        }   
     }
 
     /**

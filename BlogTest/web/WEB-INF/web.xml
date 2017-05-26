@@ -64,6 +64,10 @@
         <servlet-name>UsuarioController</servlet-name>
         <url-pattern>/Usuario/ingresar</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UsuarioController</servlet-name>
+        <url-pattern>/Usuario/login</url-pattern>
+    </servlet-mapping>
     
     
     <session-config>

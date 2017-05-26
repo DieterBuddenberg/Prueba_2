@@ -55,7 +55,7 @@ public class PostController extends HttpServlet {
         String ruta = request.getRequestURI();
         String accion = Ayudante.getAccion(ruta);
         
-        System.out.print(accion);
+        //System.out.print(accion);
         
         /*switch (accion) {
             case "ingresar":
